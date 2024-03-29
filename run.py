@@ -1,7 +1,11 @@
-# random is a library used to choose a word from a random list of words.
-# colorama is a library that allows the colour of text to be changed.
+# random is a module used to choose a word from a random list of words.
+# colorama is a module that allows the colour of text to be changed.
+# time module used to pause the execution of the program for the specified number of seconds.
+# os module clears the terminal screenn.
 import random 
 from colorama import Fore, Style
+import time
+import os
 
 def welcome_screen():
     """
@@ -23,6 +27,8 @@ def welcome_screen():
                 raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL)
             else:
                 print(f'Hi {name}, now we are ready to play!')
+                time.sleep(1)  # Adding a delay of 2 seconds
+                os.system('clear')  # Clearing terminal
                 break
         except ValueError as e:
             print(Fore.RED + f"Invalid input: {e}" + Style.RESET_ALL)
