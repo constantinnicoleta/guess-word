@@ -1,5 +1,5 @@
-# library used to choose a word 
-#from a random list of words 
+# random is a library used to choose a word from a random list of words.
+# colorama is a library that allows the colour of text to be changed.
 import random 
 from colorama import Fore, Style
 
@@ -35,9 +35,18 @@ def select_word():
     Selects a random word from the list.
     """
     words_list = ["lipstick", "popcorn", "daisy", "pretzel", "gingerbread", "girlfriend", "bottle", "lion", "guitar", "sunshine", "music", "coffee", "chair"]
-    word = (random.choice(words_list))
+    return random.choice(words_list)
+
     
-select_word() 
+def display_word(word):
+    """Displays the word with blank spaces for each letter to be guessed by user."""
+    print("Word to guess:")
+    for letter in word:
+        print(Fore.BLUE + "_", end=" ")  # Print underscore in blue color
+    print(Style.RESET_ALL)  # Reset color to default
+
+selected_word = select_word()
+display_word(selected_word)
 
 
 
