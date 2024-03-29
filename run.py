@@ -1,6 +1,7 @@
 # library used to choose a word 
 #from a random list of words 
 import random 
+from colorama import Fore, Style
 
 def welcome_screen():
     """
@@ -35,6 +36,11 @@ def select_word():
     """
     words_list = ["lipstick", "popcorn", "daisy", "pretzel", "gingerbread", "girlfriend", "bottle", "lion", "guitar", "sunshine", "music", "coffee", "chair"]
     word = (random.choice(words_list))
-    print(word)
+    
+select_word() 
 
-select_word()    
+
+
+
+
+
