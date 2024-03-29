@@ -18,14 +18,14 @@ def welcome_screen():
         try:
             name = input("Please enter your name: ")
             if not name.strip():
-                raise ValueError("Name cannot be left blank.")
+                raise ValueError(Fore.RED + "Name cannot be left blank." + Style.RESET_ALL)
             elif not name.isalpha():
-                raise ValueError("Please only enter letters for your name.")
+                raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL)
             else:
                 print(f'Hi {name}, now we are ready to play!')
                 break
         except ValueError as e:
-            print(f"Invalid input: {e}")
+            print(Fore.RED + f"Invalid input: {e}" + Style.RESET_ALL)
         
 welcome_screen()
 
