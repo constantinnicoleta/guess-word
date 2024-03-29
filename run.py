@@ -29,5 +29,12 @@ def welcome_screen():
 welcome_screen()
 
 
-  
-    
+def select_word():
+    """
+    Selects a random word from the list.
+    """
+    words_list = ["lipstick", "popcorn", "daisy", "pretzel", "gingerbread", "girlfriend", "bottle", "lion", "guitar", "sunshine", "music", "coffee", "chair"]
+    word = (random.choice(words_list))
+    print(word)
+
+select_word()    
