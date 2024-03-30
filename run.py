@@ -45,7 +45,9 @@ def select_word():
 
     
 def display_word(word,guessed_letters):
-    """Displays the word with blank spaces for each letter to be guessed by user."""
+    """
+    Displays the word with blank spaces for each letter to be guessed by user.
+    """
     print("\nWord to guess:")
     for letter in word:
         print(Fore.BLUE + "_", end=" ")  # Print underscore in blue color
@@ -58,7 +60,12 @@ display_word(selected_word,guessed_letters)
 
 def play_game(word):
     """
-    Main game loop where the player guesses letters.
+    Main game loop where the player guesses letters using while loop, condition and if statements.
+    Validate user input, informs player if the letter is correct/incorrect/already guessed.
+    Shows current state of word as the letter guessing.
+    Informs player they guessed the word or
+    Informs player they ran out of attempts if all attempts used.
+    
     """
     attempts = 6  # Number of attempts allowed
     guessed_letters = []  # List to store guessed letters
@@ -102,7 +109,7 @@ def play_game(word):
 
 def display_word_with_guesses(word, guessed_letters):
     """
-    Displays the word with all the correct guessed letters filled in and also shows the incorrect guesses.
+    Displays the word with all the correct guessed letters filled in and also displays the incorrect guesses.
     """
     display = "" #empty string to hold the displayed word
     for letter in word:
@@ -118,7 +125,6 @@ def display_word_with_guesses(word, guessed_letters):
         print("\nIncorrect guesses:", ", ".join(incorrect_guesses))
     return display    
 
-# Call the play_game function with the selected word
 play_game(selected_word)        
 
     
