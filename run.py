@@ -44,7 +44,7 @@ def select_word():
     return random.choice(words_list) #returns random word from list
 
     
-def display_word(word):
+def display_word(word,guessed_letters):
     """Displays the word with blank spaces for each letter to be guessed by user."""
     print("\nWord to guess:")
     for letter in word:
@@ -54,7 +54,7 @@ def display_word(word):
 
 selected_word = select_word()
 guessed_letters = []  # Initialize guessed letters list
-display_word(selected_word)
+display_word(selected_word,guessed_letters)
 
 def play_game(word):
     """
@@ -90,3 +90,35 @@ def play_game(word):
             attempts -= 1
             print(Fore.RED + "Incorrect guess!" + Style.RESET_ALL)#informs player the letter guessed is incorrect
         displayed_word = display_word_with_guesses(word, guessed_letters) #shows current state of words with letters guessed
+
+        if "_" not in displayed_word:
+            os.system('clear')  # Clears the terminal screen
+            print(displayed_word)
+            print(Fore.BLUE + "Congratulations! You've guessed the word!" + Style.RESET_ALL) #informs player they've guessed the word
+            break #exit the loop if condition met
+        elif attempts == 0:
+            print(Fore.RED + "Out of attempts! The word was:", word + Style.RESET_ALL) #informs player they ran out of attempts
+            break
+
+def display_word_with_guesses(word, guessed_letters):
+    """
+    Displays the word with all the correct guessed letters filled in and also shows the incorrect guesses.
+    """
+    display = "" #empty string to hold the displayed word
+    for letter in word:
+        if letter in guessed_letters: #checks if the letter has been guessed
+            display += letter + " "  #adds it to display sting if guessed
+        else:
+            display += "_ " #displaying underscore and hidded if not guessed
+    print(display)
+
+    # Display incorrect guesses
+    incorrect_guesses = [letter for letter in guessed_letters if letter not in word]
+    if incorrect_guesses:
+        print("\nIncorrect guesses:", ", ".join(incorrect_guesses))
+    return display    
+
+# Call the play_game function with the selected word
+play_game(selected_word)        
+
+    
