@@ -22,9 +22,9 @@ def welcome_screen():
         try:
             name = input("\nPlease enter your name: ")
             if not name.strip():
-                raise ValueError(Fore.RED + "Name cannot be left blank." + Style.RESET_ALL)
+                raise ValueError(Fore.RED + "Name cannot be left blank." + Style.RESET_ALL) #validate user input
             elif not name.isalpha():
-                raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL)
+                raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL) #validate user input
             else:
                 print(f'\nHi {name}, now we are ready to play!')
                 time.sleep(1)  # Adding a delay of 2 seconds
@@ -41,7 +41,7 @@ def select_word():
     Selects a random word from the list.
     """
     words_list = ["lipstick", "popcorn", "daisy", "pretzel", "gingerbread", "girlfriend", "bottle", "lion", "guitar", "sunshine", "music", "coffee", "chair"]
-    return random.choice(words_list)
+    return random.choice(words_list) #returns random word from list
 
     
 def display_word(word):
@@ -67,19 +67,26 @@ def play_game(word):
         try:
             guess = input("\nGuess a letter: ").strip().lower()  # Convert input to lowercase and remove leading/trailing spaces
             if not guess:
-                raise ValueError("Input cannot be left blank.")
+                raise ValueError("Input cannot be left blank.") #validate user input
             if len(guess) != 1 or not guess.isalpha():
                 if guess.isdigit():
-                    raise ValueError("Please enter a letter, not a number.")
+                    raise ValueError("Please enter a letter, not a number.") #validate user input
                 else:
-                    raise ValueError("Please enter a single letter.")
+                    raise ValueError("Please enter a single letter.") #validate user input
         except ValueError as e:
             print(Fore.RED + "Invalid input:", e, Style.RESET_ALL)
             continue  # Skip to next iteration of loop
 
-        guessed_letters.append(guess)  # Add guessed letter to list
-        print("Guessed letters:", guessed_letters)  # Print guessed letters for testing purposes
-        attempts -= 1  # Decrement attempts for testing purposes
+        if guess in guessed_letters:
+            print(Fore.YELLOW + "You've already guessed this letter." + Style.RESET_ALL) #informs the player that they've already guessed a particular letter 
+            display_word_with_guesses(word, guessed_letters) 
+            continue  
 
-# Test the play_game function with a sample word
-play_game("example")
+        guessed_letters.append(guess) #adding the guessed letter to the list
+
+        if guess in word:
+            print(Fore.GREEN + "Correct guess!" + Style.RESET_ALL) #informs player the letter guessed is correct
+        else:
+            attempts -= 1
+            print(Fore.RED + "Incorrect guess!" + Style.RESET_ALL)#informs player the letter guessed is incorrect
+        displayed_word = display_word_with_guesses(word, guessed_letters) #shows current state of words with letters guessed
