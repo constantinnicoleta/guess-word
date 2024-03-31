@@ -57,8 +57,6 @@ def play_game(word):
     Informs player they ran out of attempts if all attempts used.
     
     """
-    #global replay # global scope as also used outside function 
-    #replay = False # while set to false, indicates game has not started yet/player has not chosen to play again 
     
     attempts = 6  # Number of attempts allowed
     guessed_letters = []  # List to store guessed letters
