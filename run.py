@@ -98,7 +98,6 @@ def play_game(word):
             break #exit the loop if condition met
         elif attempts == 0:
             print(Fore.RED + "Out of attempts! The word was:", word + Style.RESET_ALL) #informs player they ran out of attempts
-            break
 
     decision = input("Do you want to play again? (y/n)") # asks the player if want to play again
     if decision == "y": 
