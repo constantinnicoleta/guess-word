@@ -1,7 +1,3 @@
-# random is a module used to choose a word from a random list of words.
-# colorama is a module that allows the colour of text to be changed.
-# time module used to pause the execution of the program for the specified number of seconds.
-# os module clears the terminal screenn.
 import random 
 from colorama import Fore, Style
 import time
