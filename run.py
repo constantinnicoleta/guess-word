@@ -105,9 +105,9 @@ def play_game(word):
             print(Fore.RED + "Out of attempts! The word was:", word + Style.RESET_ALL) #informs player they ran out of attempts
             break
 
-    decision = input("Do you want to play again? (y/n)")
-    if decision == "y":
-        replay = True;
+    decision = input("Do you want to play again? (y/n)") # asks the player if want to play again
+    if decision == "y": 
+        replay = True; 
     else:
         replay = False;
 
@@ -125,7 +125,7 @@ def display_word_with_guesses(word, guessed_letters):
     print(display)
 
     # Display incorrect guesses
-    incorrect_guesses = [letter for letter in guessed_letters if letter not in word]
+    incorrect_guesses = [letter for letter in guessed_letters if letter not in word] #iterates through each letter to check if that letter is not in the variable word.
     if incorrect_guesses:
         print("\nIncorrect guesses:", ", ".join(incorrect_guesses))
     return display    
@@ -138,10 +138,10 @@ while game_ongoing == True:
     display_word(selected_word,guessed_letters)
     play_game(selected_word)
 
-    if replay == True:
+    if replay == True: # if user selects 'y', will clear prev terminal screen & play again 
         os.system('clear')
     else:
-        print("Thank you for playing! Goodbye :).")
+        print("Thank you for playing! Goodbye :).") # if user selected 'n' will end game and display message
         game_ongoing = False;
 
      
