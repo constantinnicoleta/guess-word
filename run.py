@@ -33,7 +33,6 @@ def welcome_screen():
         except ValueError as e:
             print(Fore.RED + f"Invalid input: {e}" + Style.RESET_ALL)
         
-welcome_screen()
 
 
 def select_word():
@@ -62,8 +61,8 @@ def play_game(word):
     Informs player they ran out of attempts if all attempts used.
     
     """
-    global replay # global scope as also used outside function 
-    replay = False # while set to false, indicates game has not started yet/player has not chosen to play again 
+    #global replay # global scope as also used outside function 
+    #replay = False # while set to false, indicates game has not started yet/player has not chosen to play again 
     
     attempts = 6  # Number of attempts allowed
     guessed_letters = []  # List to store guessed letters
@@ -107,9 +106,9 @@ def play_game(word):
 
     decision = input("Do you want to play again? (y/n)") # asks the player if want to play again
     if decision == "y": 
-        replay = True; 
+        return True; 
     else:
-        replay = False;
+        return False;
 
 
 def display_word_with_guesses(word, guessed_letters):
@@ -130,19 +129,21 @@ def display_word_with_guesses(word, guessed_letters):
         print("\nIncorrect guesses:", ", ".join(incorrect_guesses))
     return display    
 
-game_ongoing = True;
 
-while game_ongoing == True:
-    selected_word = select_word()
-    guessed_letters = [] 
-    display_word(selected_word,guessed_letters)
-    play_game(selected_word)
+def main():
+    welcome_screen()
+    replay = True;
+    while replay == True:
+        selected_word = select_word()
+        guessed_letters = [] 
+        display_word(selected_word,guessed_letters)
+        replay = play_game(selected_word) 
 
-    if replay == True: # if user selects 'y', will clear prev terminal screen & play again 
-        os.system('clear')
-    else:
-        print("Thank you for playing! Goodbye :).") # if user selected 'n' will end game and display message
-        game_ongoing = False;
+        if replay == True: # if user selects 'y', will clear prev terminal screen & play again 
+            os.system('clear')
+        else:
+            print("Thank you for playing! Goodbye :).") # if user selected 'n' will end game and display message
 
+main()
      
            
