@@ -99,11 +99,14 @@ def play_game(word):
         elif attempts == 0:
             print(Fore.RED + "Out of attempts! The word was:", word + Style.RESET_ALL) #informs player they ran out of attempts
 
-    decision = input("Do you want to play again? (y/n)") # asks the player if want to play again
-    if decision == "y": 
-        return True; 
-    else:
-        return False;
+    while True:
+        decision = input("Do you want to play again? (y/n)").strip().lower() # asks the player if want to play again
+        if decision == "y": 
+            return True
+        elif decision == "n":
+            return False
+        else:
+            print("Invalid input! Please enter 'y' to play again or 'n' to quit.")
 
 
 def display_word_with_guesses(word, guessed_letters):
