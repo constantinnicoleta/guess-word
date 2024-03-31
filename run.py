@@ -104,7 +104,7 @@ def play_game(word):
         elif decision == "n":
             return False
         else:
-            print("Invalid input! Please enter 'y' to play again or 'n' to quit.")
+            print(Fore.RED + "Invalid input! Please enter 'y' to play again or 'n' to quit."+ Style.RESET_ALL)
 
 
 def display_word_with_guesses(word, guessed_letters):
