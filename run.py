@@ -53,11 +53,6 @@ def display_word(word,guessed_letters):
         print(Fore.BLUE + "_", end=" ")  # Print underscore in blue color
     print(Style.RESET_ALL)  # Reset color to default
 
-
-selected_word = select_word()
-guessed_letters = []  # Initialize guessed letters list
-display_word(selected_word,guessed_letters)
-
 def play_game(word):
     """
     Main game loop where the player guesses letters using while loop, condition and if statements.
@@ -67,6 +62,9 @@ def play_game(word):
     Informs player they ran out of attempts if all attempts used.
     
     """
+    global replay # global scope as also used outside function 
+    replay = False # while set to false, indicates game has not started yet/player has not chosen to play again 
+    
     attempts = 6  # Number of attempts allowed
     guessed_letters = []  # List to store guessed letters
     while attempts > 0:
@@ -107,6 +105,13 @@ def play_game(word):
             print(Fore.RED + "Out of attempts! The word was:", word + Style.RESET_ALL) #informs player they ran out of attempts
             break
 
+    decision = input("Do you want to play again? (y/n)")
+    if decision == "y":
+        replay = True;
+    else:
+        replay = False;
+
+
 def display_word_with_guesses(word, guessed_letters):
     """
     Displays the word with all the correct guessed letters filled in and also displays the incorrect guesses.
@@ -125,6 +130,19 @@ def display_word_with_guesses(word, guessed_letters):
         print("\nIncorrect guesses:", ", ".join(incorrect_guesses))
     return display    
 
-play_game(selected_word)        
+game_ongoing = True;
 
-    
+while game_ongoing == True:
+    selected_word = select_word()
+    guessed_letters = [] 
+    display_word(selected_word,guessed_letters)
+    play_game(selected_word)
+
+    if replay == True:
+        os.system('clear')
+    else:
+        print("Thank you for playing! Goodbye :).")
+        game_ongoing = False;
+
+     
+           
