@@ -1,26 +1,28 @@
-import random 
+import random
 from colorama import Fore, Style
 import time
 import os
 
+
 def welcome_screen():
     """
-    Displays welcome message and prompts for user's name.
-    Try-except block validates data & raises ValueErrors if incorrect type.
+    Display welcome message and prompts for user's name.
+
+    Try-except block validate data & raise ValueErrors if incorrect type.
     """
     print("Welcome to Let's see if you can guess it!")
-    print("\nThe game is simple, you need to guess the random word letter by letter...")
+    print("\nThe game is simple, you need to guess the random word letter by letter")
     print("\nDid I mention you're given only have 6 attempts?")
     print("\nI'm sure you can guess it before that...Let's play!")
     print("\nBut first...")
-    
+
     while True:
         try:
             name = input("\nPlease enter your name: ")
             if not name.strip():
-                raise ValueError(Fore.RED + "Name cannot be left blank." + Style.RESET_ALL) #validate user input
+                raise ValueError(Fore.RED + "Name cannot be left blank." + Style.RESET_ALL). #validate user input
             elif not name.isalpha():
-                raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL) #validate user input
+                raise ValueError(Fore.RED + "Please only enter letters for your name." + Style.RESET_ALL)  #validate user input
             else:
                 print(f'\nHi {name}, now we are ready to play!')
                 time.sleep(1)  # Adding a delay of 2 seconds
