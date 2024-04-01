@@ -19,7 +19,7 @@ def welcome_screen():
 
     while True:
         try:
-            name = input("\nPlease enter your name: ")
+            name = input("\nPlease enter your name:\n")
             if not name.strip():
                 # validate user input
                 raise ValueError(
@@ -76,7 +76,7 @@ def play_game(word):
         print("\nAttempts left:", attempts)
         try:
             # Convert input to lowercase and remove leading/trailing spaces
-            guess = input("\nGuess a letter: ").strip().lower()
+            guess = input("\nGuess a letter:\n ").strip().lower()
             if not guess:
                 # validate user input
                 raise ValueError("Input cannot be left blank.")
@@ -125,7 +125,7 @@ def play_game(word):
 
     while True:
         # asks the player if want to play again
-        decision = input("Do you want to play again? (y/n)").strip().lower()
+        decision = input("Do you want to play again? (y/n)\n").strip().lower()
         if decision == "y":
             return True
         elif decision == "n":
