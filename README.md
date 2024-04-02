@@ -37,7 +37,7 @@ At the end of the game you will also have the option to choose if you want to pl
 
 To create and understand the game steps I have created the below Flow chart using [Lucid charts](https://www.lucidchart.com/)
 
-![flow chart screenshot](docs/flow_chart.png)
+![flow chart screenshot](docs/flowchart_new.png)
 
 ### Flow chart colours:
 - green : initiates something
@@ -183,12 +183,25 @@ The project was deployed using Heroku. I have followed these below steps for dep
 6. Scroll down to view the Config Vars section and click Reveal Config Vars.
 7. Enter port into the Key box and 8000 into the Value box and click the Add button.
 8. Next, scroll down to Buildpacks sections. Click Add buildpack and select python.
-9. Within the same section, click Add buildpack and select nodejs. Note it has to be in order, first will be pytho and then nodejs.
+9. Within the same section, click Add buildpack and select nodejs. Note it has to be in order, first will be python and then nodejs.
 10. Scroll up and navigate to Deploy tab.
 11. Select Github as the deployment method
 12. Search for the repository name and click the connect button
 13. Scroll to the bottom of the deploy page and select the preferred deployment type
 14. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github or Manual deploy to deploy the current state of the branch you choose.
+
+### How to Fork:
+- Log in (or sign up) to [Github](https://github.com/).
+- Go to respository for the project.
+- Click the fork button in the top right corner.
+
+### How to Clone:
+- Log in (or sign up) to [Github](https://github.com/).
+- Go to respository for the project.
+- Click on the code button, select whether you would like to clone with HTTPS, SSH, GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the clone directory.
+- Type 'git clone' into terminal and then paste the link you copied in step 3.
+- Press enter.
 
 Live link can be found - [here](https://guess-the-word-fd228f60a7db.herokuapp.com/)
 

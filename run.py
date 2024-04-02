@@ -32,8 +32,10 @@ def welcome_screen():
                                  Style.RESET_ALL)
             else:
                 print(f'\nHi {name}, now we are ready to play!')
-                time.sleep(1)  # Adding a delay of 1 second
-                os.system('clear')  # Clearing terminal
+                # Adding a delay of 1 second
+                time.sleep(1)
+                # Clearing terminal
+                os.system('clear')
                 break
         except ValueError as e:
             print(Fore.RED + f"Invalid input: {e}" + Style.RESET_ALL)
@@ -45,7 +47,8 @@ def select_word():
     words_list = ["lipstick", "popcorn", "daisy", "pretzel",
                   "gingerbread", "girlfriend", "bottle", "lion",
                   "guitar", "sunshine", "music", "coffee", "chair"]
-    return random.choice(words_list)  # returns random word from list
+    # returns random word from list
+    return random.choice(words_list)
 
 
 def display_word(word, guessed_letters):
@@ -56,8 +59,10 @@ def display_word(word, guessed_letters):
 
     print("\nWord to guess:")
     for letter in word:
-        print(Fore.BLUE + "_", end=" ")  # Print underscore in blue color
-    print(Style.RESET_ALL)  # Reset color to default
+        # Print underscore in blue color
+        print(Fore.BLUE + "_", end=" ")
+        # Reset color to default
+    print(Style.RESET_ALL)
 
 
 def play_game(word):
@@ -70,8 +75,10 @@ def play_game(word):
     Inform player they guessed the word or
     Inform player they ran out of attempts if all attempts used.
     """
-    attempts = 6  # Number of attempts allowed
-    guessed_letters = []  # List to store guessed letters
+    # Number of attempts allowed
+    attempts = 6
+    # List to store guessed letters
+    guessed_letters = []
     while attempts > 0:
         print("\nAttempts left:", attempts)
         try:
@@ -89,7 +96,8 @@ def play_game(word):
                     raise ValueError("Please enter a single letter.")
         except ValueError as e:
             print(Fore.RED + "Invalid input:", e, Style.RESET_ALL)
-            continue  # Skip to next iteration of loop
+            # skip to next iteration of loop
+            continue
 
         if guess in guessed_letters:
             # player informed they've already guessed a particular letter
@@ -97,8 +105,8 @@ def play_game(word):
                   "You've already guessed this letter." + Style.RESET_ALL)
             display_word_with_guesses(word, guessed_letters)
             continue
-
-        guessed_letters.append(guess)  # adding the guessed letter to the list
+        # adding the guessed letter to the list
+        guessed_letters.append(guess)
 
         if guess in word:
             # informs player the letter guessed is correct
@@ -111,13 +119,15 @@ def play_game(word):
         displayed_word = display_word_with_guesses(word, guessed_letters)
 
         if "_" not in displayed_word:
-            os.system('clear')  # Clears the terminal screen
+            # Clears the terminal screen
+            os.system('clear')
             print(displayed_word)
             # informs player they've guessed the word
             print(Fore.BLUE +
                   "Congratulations! You've guessed the word!" +
                   Style.RESET_ALL)
-            break  # exit the loop if condition met
+            # exit the loop if condition met
+            break
         elif attempts == 0:
             # informs player they ran out of attempts
             print(Fore.RED + "Out of attempts! The word was:", word +
@@ -141,13 +151,16 @@ def display_word_with_guesses(word, guessed_letters):
     Display the word with all the correct guessed letters filled in.
     Display the incorrect guesses.
     """
-
-    display = ""  # empty string to hold the displayed word
+    # empty string to hold the displayed word
+    display = ""
     for letter in word:
-        if letter in guessed_letters:  # checks if the letter has been guessed
-            display += letter + " "  # adds it to display sting if guessed
+        # checks if the letter has been guessed
+        if letter in guessed_letters:
+            # adds it to display sting if guessed
+            display += letter + " "
         else:
-            display += "_ "  # displaying underscore and hidded if not guessed
+            # displaying underscore and hidded if not guessed
+            display += "_ "
     print(display)
 
     # Display incorrect guesses
