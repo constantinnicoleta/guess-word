@@ -37,6 +37,7 @@ At the end of the game you will also have the option to choose if you want to pl
 
 To create and understand the game steps I have created the below Flow chart using [Lucid charts](https://www.lucidchart.com/)
 
+![flow chart screenshot](docs/flow_chart.png)
 
 ### Flow chart colours:
 - green : initiates something
@@ -48,32 +49,54 @@ To create and understand the game steps I have created the below Flow chart usin
 
 ## Welcome Screen
  
- - The welcome screen displays a welcome message to the player, explains how the game works and prompts the user for their name.
- - 
- -   
+ - The welcome screen displays a welcome message to the player.
+ - Explains how the game works and prompts the user for their name.
+
+ - ![welcome screen](docs/welcome_screen.png)
+
+ - If the input is invalid, it prompts the user again until a valid input is provided.
+
+ - ![invalid input name](docs/invalid_input_name.png)
+
 
 
 ## Game Screen
- - 
- - 
- - 
+ - Once the user enters a valid name, the game screen displays a randomly selectee word from a predefined list of words and returns it.
+
+ - It displays the word with blank spaces for each letter that the player needs to guess.
+
+ - ![game screen](docs/start_game.png)
  
 
 ### Checking answers
- - 
- - 
+ - If the player guessed letter is correct, it updates the display accordingly and underscores for the letters that are yet to be guessed.
+
+ - If the player guessed letter is incorrect, it is added to the incorrect guessed list and decrements the total attempts by 1.
+
+ - The correct letter is coloured in 'green' and the incorrect one in 'red'.
+
+ - It allows the player a limited number of attempts (6) to guess the word.
+ - ![guesses](docs/guesses.png)
+
+ - It also points out any letters that have been previously guessed & that cannot be entered again:
+
+ - ![already guessed letter](docs/already_guessed.png)
+
+ - For each guess, it checks if the input is valid and upon checking and incorrect , it wil display 'Invalid Input' text.
+
+ - ![letter input](docs/invalid_input_letter.png)
 
 
 ## Game End Screen
- - 
- - 
- - 
+ - If the player runs out of attempts, it will display end of game message with the correct word and option to play again :
+ - ![out of attempts](docs/out_of_attempts.png)
 
-# Data Model 
-- 
-- 
-- 
+ - If the player guesses the word, it will display a Congratulations message and ask if you want to play again:
+ - ![word guessed](docs/word_guessed.png)
 
+ - In order to play again the user will have to select 'y' or to quit 'n'.
+ - If 'n' selected will dispay 'Thank you for playing' message , if 'y' entered will play again with a different word.
+ ![play again](docs/play_again.png)
 
 
 ## Technologies used 
@@ -85,7 +108,6 @@ To create and understand the game steps I have created the below Flow chart usin
 
 ### Language used:
 - Python
-
 
 # Libraries
 
@@ -144,7 +166,7 @@ I have played the game in different browsers such as Safari, Google Chrome and M
 
 ### PEP8 Python Linter
 - No errors were found, see below the screenshorts for run.py code:
-![PEP8 Python Linter](documentation/jshint_validator.jpg)
+![PEP8 Python Linter](docs/ci_python_linter.png)
 
 ## Unfixed bugs
 No bugs were found.
