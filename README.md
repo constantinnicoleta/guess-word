@@ -37,6 +37,7 @@ At the end of the game you will also have the option to choose if you want to pl
 
 To create and understand the game steps I have created the below Flow chart using [Lucid charts](https://www.lucidchart.com/)
 
+
 ### Flow chart colours:
 - green : initiates something
 - blue : displays to terminal
@@ -45,25 +46,25 @@ To create and understand the game steps I have created the below Flow chart usin
 
 # Existing Features 
 
- ## Welcome Screen
+## Welcome Screen
  
  - The welcome screen displays a welcome message to the player, explains how the game works and prompts the user for their name.
  - 
  -   
 
 
- ## Game Screen
+## Game Screen
  - 
  - 
  - 
  
 
- ### Checking answers
+### Checking answers
  - 
  - 
 
 
- ## Game End Screen
+## Game End Screen
  - 
  - 
  - 
@@ -74,7 +75,8 @@ To create and understand the game steps I have created the below Flow chart usin
 - 
 
 
- ## Technologies used 
+
+## Technologies used 
 1. **Git** - Used to track changes in source code during software development.
 2. **GitHub** - Used for version control
 3. **Heroku** - Used to deploy the live project
